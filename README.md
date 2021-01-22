@@ -1,7 +1,8 @@
 # Web-APIs-Mini-Timed-Quiz
 Week 4 Homework: develop a time quiz
 
-# Develop a mini timed quiz that:
+## Develop a mini timed quiz that:
+```
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
 WHEN I answer a question
@@ -16,11 +17,12 @@ WHEN the game is over
 THEN I can save my initials and my score
 
 Note: The score is the same as the remained time
+```
 
 
-# Mock-Up
+## Mock-Up
 ![timed quiz demo](./asset/screenshot.jpg)
 
-# Links to the deployed application:**
+## Links to the deployed application:
 [GitHub Repository](https://github.com/hanhle1989/Web-APIs-Mini-Timed-Quiz)
 and [Deployed Application](https://hanhle1989.github.io/Web-APIs-Mini-Timed-Quiz/)
