@@ -31,7 +31,7 @@ var viewScrBtn = document.getElementById("view-scores");
 
 // time and score
 let timeEl = document.querySelector("p.time");
-let timeleft = 100;
+let timeleft = 60;
 let scoreEl = document.querySelector("#score");
 displayScores();
 
@@ -202,7 +202,7 @@ for (var i=0; i<goBackBtn.length; i++){
         highscoresEl.style.display = "none";
         questionsEl.style.display = "none";
         introEl.style.display = "block";
-        timeleft = 100;
+        timeleft = 60;
         timeEl.textContent = `Time:${timeleft}s`;
     });
 }

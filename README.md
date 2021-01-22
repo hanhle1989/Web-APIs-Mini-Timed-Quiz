@@ -4,7 +4,7 @@ Week 4 Homework: develop a time quiz
 ## Develop a mini timed quiz that:
 ```
 WHEN I click the start button
-THEN a timer starts and I am presented with a question
+THEN a timer starts at 60 seconds and I am presented with a question
 WHEN I answer a question
 THEN I am presented with another question
 WHEN I answer a question incorrectly
