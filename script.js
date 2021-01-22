@@ -18,52 +18,54 @@ let scoreList = [];
 
 // buttons
 var startBtn = document.getElementById("start");
-var ansBtn = document.getElementById("button.ansBtn")
+var ansBtn = document.getElementsByClassName("ansBtn")
 var ans1Btn = document.getElementById("answer1");
 var ans2Btn = document.getElementById("answer2");
 var ans3Btn = document.getElementById("answer3");
 var ans4Btn = document.getElementById("answer4");
 var submitScrBtn = document.getElementById("submit-score");
-var goBackBtn = document.getElementById("goback");
+var goBackBtn = document.getElementsByClassName("goback");
 var clearScrBtn = document.getElementById("clearscores");
 var viewScrBtn = document.getElementById("view-scores");
+
 
 // time and score
 let timeEl = document.querySelector("p.time");
 let timeleft = 100;
 let scoreEl = document.querySelector("#score");
+displayScores();
 
 // Questions and answers
 var Quizquestions = [
     {
         question: "Choose the correct HTML element for the largest heading",
         answers: ["<h1>", "<heading>", "large", "h6"],
-        correctAnswer: "1"
+        correctAnswer: "0"
     },
     {
         question: "Which is the correct CSS syntax?",
         answers: ["body: color = black;", "{body: color = black;}", "body {color: black;}", "{body; color: black;}"],
-        correctAnswer: "3"
+        correctAnswer: "2"
     },
     {
         question: "How do you insert a comment in a CSS file?",
         answers: ["'this is a comment'", "this is a comment", "this is a comment//", "/*this is a comment*/"],
-        correctAnswer: "4"
+        correctAnswer: "3"
     },
     {
         question: "Inside which HTML element do we put the JavaScript?",
         answers: ["<javascript>", "<js>", "<scripting>", "<script>"],
-        correctAnswer: "4"
+        correctAnswer: "3"
     },
     {
         question: "How do you create a function in JavaScript?",
         answers: ["function: myFunction()", "function = myFunction()", "function myFunction()", "function #myFunction()"],
-        correctAnswer: "3"
+        correctAnswer: "2"
     },
     {
         question: "The Bootstrap grid system is based on how many columns?",
         answers: ["12", "3", "6", "9"],
-        correctAnswer: "1"
+        correctAnswer: "0"
     }
 ];
 
@@ -87,6 +89,7 @@ function setTime() {
 startBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
+    highscoresEl.style.display = "none";
     introEl.style.display = "none";
     questionsEl.style.display = "block";
     questionCount = 0;
@@ -107,7 +110,9 @@ function setQuestion(id) {
 }
 
 // Check answers
-ansBtn.addEventListener("click", checkAnswer);
+for(var i = 0; i < ansBtn.length; i++){
+    ansBtn[i].addEventListener("click",checkAnswer);
+  }
 
 function checkAnswer(event) {
     event.preventDefault();
@@ -162,7 +167,6 @@ function addScore(event) {
 
     // store score
     storeScores();
-    displayScores();
 }
 
 // Add score to local storage
@@ -183,29 +187,46 @@ function displayScores() {
 
 // clear scores
 clearScrBtn.addEventListener("click", clearScores);
-
 function clearScores() {
     localStorage.clear();
     scoreListEl.innerHTML = "";
 }
 
 // Go Back Button
-goBackBtn.addEventListener("click", function () {
-    highscoresEl.style.display = "none";
-    questionsEl.style.display = "none";
-    introEl.style.display = "block";
-    timeleft = 100;
-    timeEl.textContent = `Time:${timeleft}s`;
-});
+for (var i=0; i<goBackBtn.length; i++){
+    goBackBtn[i].addEventListener("click", function () {
+        highscoresEl.style.display = "none";
+        questionsEl.style.display = "none";
+        introEl.style.display = "block";
+        timeleft = 100;
+        timeEl.textContent = `Time:${timeleft}s`;
+    });
+}
 
 
 // View/Hide High Scores Button
 viewScrBtn.addEventListener("click", function () {
+    highscoresEl.style.display = "none";
+    if(scoreList.length === 0){
+        alert("No scores to show.");
+    }
+
+    scoreList = scoreList.sort((a, b) => {
+    if (a.score < b.score) {
+        return 1;
+    } else {
+        return -1;
+    }
+    });
+
+    scoreListEl.innerHTML = "";
+    for (let i = 0; i < scoreList.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+        scoreListEl.append(li); 
+    }
+
     if (highscoresEl.style.display === "none") {
         highscoresEl.style.display = "block";
-    } else if (highscoresEl.style.display === "block") {
-        highscoresEl.style.display = "none";
-    } else {
-        return alert("No scores to show.");
     }
 });
