@@ -1,0 +1,33 @@
+/* Google Font */
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet);
+
+/* hide sections until they are shown via the click events */
+#questions,
+#final,
+#highscores,
+#rightwrong {
+    display: none;  
+  } 
+
+/* Remove bullet points from answers list */
+ul.nobullets {
+list-style-type: none;
+}
+
+ol.score-list {
+  list-style-type: none;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+}
+
+
+.container2 {
+    margin: 70px auto;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 43vw;
+  }
