@@ -103,9 +103,13 @@ function setQuestion(id) {
     if (id < Quizquestions.length) {
         questionEl.textContent = Quizquestions[id].question;
         ans1Btn.textContent = Quizquestions[id].answers[0];
+        ans1Btn.value = "0"
         ans2Btn.textContent = Quizquestions[id].answers[1];
+        ans2Btn.value = "1"
         ans3Btn.textContent = Quizquestions[id].answers[2];
+        ans3Btn.value = "2"
         ans4Btn.textContent = Quizquestions[id].answers[3];
+        ans4Btn.value = "3"
     }
 }
 
