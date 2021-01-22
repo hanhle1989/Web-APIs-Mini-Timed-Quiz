@@ -14,16 +14,13 @@ ul.nobullets {
 list-style-type: none;
 }
 
-ol.score-list {
-  list-style-type: none;
-}
-
+/*style header*/
 .container {
     margin: auto;
     padding: 20px;
 }
 
-
+/*style quiz box*/
 .container2 {
     margin: 70px auto;
     padding: 20px;
